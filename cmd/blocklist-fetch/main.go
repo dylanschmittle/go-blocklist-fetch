@@ -1,8 +1,9 @@
 package main
 
 import (
-  "io"
+  "fmt"
   "log"
+  "io/ioutil"
   "net/http"
 )
 
@@ -15,7 +16,7 @@ func getList(link string)(string) {
   if err != nil {
     log.Fatal(err)
   }
-  content, err := ioutil.ReadALL(res.Body)
+  content, err := ioutil.ReadAll(res.Body)
   res.Body.Close()
   if err != nil {
     log.Fatal(err)
